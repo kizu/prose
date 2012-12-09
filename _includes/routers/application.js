@@ -13,6 +13,7 @@ routers.Application = Backbone.Router.extend({
   },
 
   start: function() {
+    return this.navigate( 'project-open-data', true );
     if (confirmExit()) {
       app.state = {
         user: "",
