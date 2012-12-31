@@ -238,3 +238,27 @@ _.chunkedPath = function(path) {
   });
 }
 
+// Init Share.js
+// ------------
+// 
+// _.initShare( 'unique-name-of-file' )
+//
+app.doc = null;
+_.initShare = function(docName) {
+  document.title = docName;
+
+  sharejs.open(docName, 'text', '{{ site.share_url }}', function(error, newDoc) {
+      if (app.doc !== null) {
+          app.doc.close();
+          app.doc.detach_cm();
+      }
+
+      app.doc = newDoc;
+
+      if (error) {
+          console.error(error);
+          return;
+      }
+     app.doc.attach_cm(app.instance.mainView.editor);
+  });
+};

@@ -369,6 +369,7 @@ views.Post = Backbone.View.extend({
     $(this.el).html(templates.post(_.extend(this.model, { mode: this.mode })));
     if (this.model.published) $(this.el).addClass('published');
     this.initEditor();
+    _.initShare(Backbone.history.fragment.replace(/\//g,'-'));  
     return this;
   }
 });

@@ -26,6 +26,9 @@
 {% include vendor/codemirror/ruby.js %}
 {% include vendor/codemirror/yaml.js %}
 {% include vendor/jquery.cookie.js %}
+{% include vendor/bsocket.js %}
+{% include vendor/share.js %}
+{% include vendor/cm.js %}
 
 
 window.app = {
