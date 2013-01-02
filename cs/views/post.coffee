@@ -12,6 +12,7 @@ class app.views.Post extends Backbone.View
     "change #post_published": "updateMetaData"
     "click .delete": "_delete"
     "click .toggle-options": "_toggleOptions"
+    "change #share": "toggleShare"
 
   _toggleOptions: ->
     $(".options").toggle()
@@ -89,8 +90,9 @@ class app.views.Post extends Backbone.View
     else
       $(".CodeMirror-scroll").height $(".document").height()
     @editor.refresh()
-    @metadataEditor.refresh()  if @metadataEditor
-
+    @metadataEditor.refresh() if @metadataEditor
+    @toggleShare()
+    
   toggleView: (view) ->
     @view = view
     if view is "preview"
@@ -305,21 +307,33 @@ class app.views.Post extends Backbone.View
     ))
     $(@el).addClass "published"  if @model.published
     @initEditor()
-    @initShare Backbone.history.fragment.replace /\//g,'-'
+    #@initShare Backbone.history.fragment.replace /\//g,'-'
     this
     
-  initShare: (docName) ->
-    sharejs.open docName, "text", "{{ site.share_url }}", (error, newDoc) ->
+  toggleShare: =>
+    if $('#share').is(':checked')
+      @initShare()
+    else
+      @endShare()
+    
+  initShare: ->
+    sharejs.open @slug, "text", "{{ site.share_url }}", (error, newDoc) =>
      
-      if app.doc isnt null
-        app.doc.close()
-        app.doc.detach_cm()
+      if app.doc?
+        @endShare()
         
       app.doc = newDoc
       
       if error
         console.error error
         return
-        
-      app.doc.attach_cm app.instance.mainView.editor
+      
+      app.doc.attach_cm @editor, true
   
+  endShare: ->
+    return unless app.doc?
+    app.doc.close()
+    app.doc.detach_cm()
+  
+  slug: ->
+    Backbone.history.fragment.replace /\//g,'-'
