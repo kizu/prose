@@ -1,4 +1,4 @@
-return if not authenticate()
+authenticate()
 
 loadApplication (err, data) ->
 
@@ -9,19 +9,10 @@ loadApplication (err, data) ->
 
   window.router = new app.routers.Application()
   Backbone.history.start()
-
-confirmExit = (e) ->
-  return true unless window.app.instance.mainView?
-  return true unless window.app.instance.mainView.dirty
-  
-  msg = "You have unsaved changes. Are you sure you want to leave?"
-  
-  return msg if e? and e.type? and e.type is "beforeunload"
-  confirm msg
   
 # Prevent exit when there are unsaved changes
 window.onbeforeunload = (event) ->
-  conf = confirmExit e
+  conf = App.instance.confirmExit e
   return null if c is true
  
   event = event || window.event;

@@ -317,7 +317,7 @@ class app.views.Post extends Backbone.View
       @endShare()
     
   initShare: ->
-    sharejs.open @slug, "text", "{{ site.share_url }}", (error, newDoc) =>
+    sharejs.open @slug(), "text", "{{ site.share_url }}", (error, newDoc) =>
      
       if app.doc?
         @endShare()

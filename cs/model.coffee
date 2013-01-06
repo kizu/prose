@@ -34,7 +34,7 @@ getRepo = (user, repo) ->
 # Authentication
 # -------
 authenticate = ->
-  return window.authenticated = true  if $.cookie("oauth-token")
+  return window.authenticated = true if $.cookie("oauth-token")
   match = window.location.href.match(/\?code=([a-z0-9]*)/)
   
   # Handle Code
@@ -50,6 +50,7 @@ authenticate = ->
     false
   else
     true
+    
 logout = ->
   window.authenticated = false
   $.cookie "oauth-token", null
