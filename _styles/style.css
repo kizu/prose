@@ -1024,7 +1024,7 @@ ul.site li a {
   background: none;
   }
 
-.document-menu-content .menu-item.preview, .document-menu-content .menu-item.cheatsheet, .document-menu-content .menu-item.compose {
+.document-menu-content .menu-item.preview, .document-menu-content .menu-item.cheatsheet, .document-menu-content .menu-item.compose, .document-menu-content .menu-item.sync {
   text-indent: -9999px;
   overflow: hidden;
   background-image:url('images/sprite.png');
