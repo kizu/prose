@@ -10,4 +10,11 @@ gatekeeper_url: http://gatekeeper.benbalter.com
 exclude:
 - .gitignore
 - README.md
+<<<<<<< HEAD
 rootUrl: benbalter/benbalter.github.com/tree/master/_posts
+=======
+- node_modules
+- package.json
+- Gruntfile.coffee
+rootUrl: benbalter/benbalter.github.com/tree/master/_posts
+>>>>>>> gh-pages

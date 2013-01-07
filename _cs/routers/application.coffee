@@ -27,12 +27,12 @@ class app.routers.Application extends Backbone.Router
       mode: ""
       branch: ""
       path: ""
-      
+
     if app.config.rootUrl?
       @navigate app.config.rootUrl, true
-    else 
+    else
       app.instance.start()
-    
+
   extractURL: (url) ->
     url = url.split("/")
     app.state =
