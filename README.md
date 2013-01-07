@@ -58,3 +58,5 @@ Improved error handling. Upgraded CodeMirror to version 2.3 and added basic supp
 **0.1.0** - *June 25 2012*
 
 Initial release.
+
+<a href="http://thenounproject.com/noun/loop/#icon-No2840" target="_blank">Loop</a> designed by <a href="http://thenounproject.com/somerandomdude" target="_blank">P.J. Onori</a> from The Noun Project

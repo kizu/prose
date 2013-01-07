@@ -12,7 +12,7 @@ class app.views.Post extends Backbone.View
     "change #post_published": "updateMetaData"
     "click .delete": "_delete"
     "click .toggle-options": "_toggleOptions"
-    "change #share": "toggleShare"
+    "click #sync": "toggleShare"
 
   _toggleOptions: ->
     $(".options").toggle()
@@ -311,10 +311,12 @@ class app.views.Post extends Backbone.View
     this
     
   toggleShare: =>
-    if $('#share').is(':checked')
+    el = $('#sync')
+    if el.hasClass 'active'
       @initShare()
     else
       @endShare()
+    el.toggleClass 'active'
     
   initShare: ->
     sharejs.open @slug(), "text", "{{ site.share_url }}", (error, newDoc) =>

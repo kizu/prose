@@ -1065,6 +1065,12 @@ ul.site li a {
   background-color: rgba(0,0,0, 0.6);
   }
 
+.document-menu-content .menu-item.sync {
+ background-image:url('images/sync.png');
+ background-repeat: no-repeat;
+ background-position: center;
+}
+
 .document-menu-content a {
   color: #E7EEF2;
   }
