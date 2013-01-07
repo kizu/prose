@@ -305,21 +305,4 @@ class app.views.Post extends Backbone.View
     ))
     $(@el).addClass "published"  if @model.published
     @initEditor()
-    @initShare Backbone.history.fragment.replace /\//g,'-'
     this
-    
-  initShare: (docName) ->
-    sharejs.open docName, "text", "{{ site.share_url }}", (error, newDoc) ->
-     
-      if app.doc isnt null
-        app.doc.close()
-        app.doc.detach_cm()
-        
-      app.doc = newDoc
-      
-      if error
-        console.error error
-        return
-        
-      app.doc.attach_cm app.instance.mainView.editor
-  
