@@ -14,7 +14,7 @@ class app.views.Posts extends Backbone.View
     false
 
   initialize: (options) ->
-
+      
   _search: ->
     _.delay _.bind(->
       searchstr = @$("#search_str").val()
@@ -44,7 +44,7 @@ class app.views.Posts extends Backbone.View
 
   render: ->
     that = this
-    $(@el).html app.templates.posts(_.extend(@model, app.state,
+    @$el.html app.templates.posts(_.extend(@model, app.state,
       current_path: app.state.path
     ))
     _.delay (->
