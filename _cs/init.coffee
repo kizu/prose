@@ -2,7 +2,7 @@ authenticate()
 
 # Prevent exit when there are unsaved changes
 window.onbeforeunload = (event) ->
-  conf = App.instance.confirmExit e
+  conf = App.instance.confirmExit event
   return null if c is true
 
   event = event || window.event

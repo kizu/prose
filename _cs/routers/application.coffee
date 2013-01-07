@@ -78,7 +78,7 @@ class app.routers.Application extends Backbone.Router
 
     app.instance.profile username
 
-  confirmExit = (e) ->
+  confirmExit: (e) ->
     return true unless window.app.instance.mainView?
     return true unless window.app.instance.mainView.dirty
     
