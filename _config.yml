@@ -3,8 +3,8 @@ server: true
 pygments: true
 permalink: none
 baseurl: ""
-oauth_client_id: 8c0597999e07af860296
-gatekeeper_url: http://gatekeeper.benbalter.com
+oauth_client_id: 3bc5cdc32addd0fbff25
+gatekeeper_url: http://gatekeeper-kizu.herokuapp.com
 exclude:
 - .gitignore
 - README.md
