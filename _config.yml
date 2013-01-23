@@ -11,4 +11,4 @@ exclude:
 - node_modules
 - package.json
 - Gruntfile.coffee
-rootUrl: benbalter/benbalter.github.com/tree/master/_posts
+rootUrl: kizu/kizu.github.com/tree/master/_posts
